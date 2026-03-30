@@ -21,6 +21,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
 
         http.csrf(csrf-> csrf.disable());
+
         http.authorizeHttpRequests(authorizeHttpRequest->
                 authorizeHttpRequest.requestMatchers("/api/v1/auth/register").permitAll()
                         .requestMatchers("/api/v1/auth/login").permitAll()

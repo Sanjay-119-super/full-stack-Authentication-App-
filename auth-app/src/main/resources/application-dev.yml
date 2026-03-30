@@ -38,3 +38,17 @@ spring:
 logging:
   level:
     org.springframework.security: DEBUG
+
+security:
+  jwt:
+    secret: "my-super-secret-key-which-should-be-very-long-and-random"
+    issuer: "sanjay-dev-app"
+
+    access-ttl-seconds: 900        # 15 min
+    refresh-ttl-seconds: 604800    # 7 days
+
+    refresh-token-cookie-name: "refreshToken"
+
+    cookie-secure: false          # dev me HTTP allowed
+    cookie-http-only: true        # JS access nahi karega
+    cookie-same-site: "Lax"       # CSRF protection level
