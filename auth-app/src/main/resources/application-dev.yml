@@ -41,7 +41,7 @@ logging:
 
 security:
   jwt:
-    secret: "my-super-secret-key-which-should-be-very-long-and-random"
+    secret: "a769d60ca0ee4ece7b191702f987015c2c4cb639c5a25380c068d7dfbd5fbf61"
     issuer: "sanjay-dev-app"
 
     access-ttl-seconds: 900        # 15 min
