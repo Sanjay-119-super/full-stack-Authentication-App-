@@ -49,6 +49,7 @@ security:
 
     refresh-token-cookie-name: "refreshToken"
 
-    cookie-secure: false          # dev me HTTP allowed
+    cookie-secure: true          # dev me HTTP allowed
     cookie-http-only: true        # JS access nahi karega
     cookie-same-site: "Lax"       # CSRF protection level
+    cookie-domain: "localhost"       # CSRF protection level
