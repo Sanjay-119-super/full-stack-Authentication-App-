@@ -47,6 +47,16 @@ spring:
               - profile
               - openid
 
+          github:
+            client-id: ${GITHUB_CLIENT_ID:test-id}
+            client-secret: ${GITHUB_CLIENT_SECRET:test-secret}
+            scope:
+              - user:email
+              - read:user
+
+
+
+
 
 
 logging:

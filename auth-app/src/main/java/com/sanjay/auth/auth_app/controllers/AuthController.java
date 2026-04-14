@@ -25,7 +25,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -81,7 +80,7 @@ public class AuthController {
 
         //generate access token
         String accessToken = jwtService.generateAccessToken(user);
-        String refreshToken = jwtService.generateRefreshToken(user, refreshTokenObject.getJti());
+        String refreshToken = jwtService.generateRefreshToken(user, jti);
 
         //use cookie ro attach refresh token on cookie
         cookieService.attachRefreshCookie(response,refreshToken,(int) jwtService.getRefreshTtlSeconds());
@@ -146,7 +145,7 @@ public class AuthController {
         refreshTokenRepository.save(newRefreshTokenObject);
 
         String newAccessToken = jwtService.generateAccessToken(user);
-        String newRefreshToken = jwtService.generateRefreshToken(user,newAccessToken);
+        String newRefreshToken = jwtService.generateRefreshToken(user , jti);
 
         cookieService.attachRefreshCookie(response,newRefreshToken,(int) jwtService.getRefreshTtlSeconds());
         cookieService.addNoStoreHeader(response);
